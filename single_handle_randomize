@@ -1,0 +1,20 @@
+class normal;
+  rand bit [7:0]a,i;
+   function void display(); 
+     $display("value of a =%d",a);
+  endfunction
+endclass
+module single_handle();
+ normal obj[5];
+  initial
+    begin
+      for(int i=1;i<5;i++)
+        begin
+          obj[i]=new();
+          obj[i].randomize();
+        end
+      for(int i=1;i<5;i++) begin
+      obj[i].display();
+      end 
+    end
+endmodule
